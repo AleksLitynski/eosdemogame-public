@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj25p2ob7qcup"]
+
+[ext_resource type="Script" path="res://scripts/menus/lobby_menu.gd" id="1_nuk61"]
+
+[node name="lobby_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nuk61")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 39.0
+text = "Session Id:"
+
+[node name="__user_id" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 15.0
+offset_right = 419.0
+offset_bottom = 46.0
+editable = false
+
+[node name="__copy_id" type="Button" parent="."]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 12.0
+offset_right = 536.0
+offset_bottom = 43.0
+text = "Copy"
+
+[node name="__back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1799.0
+offset_top = 18.0
+offset_right = 1899.0
+offset_bottom = 49.0
+text = "Back"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 22.0
+offset_top = 63.0
+offset_right = 537.0
+offset_bottom = 338.0
+
+[node name="__connected_players_list" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 274.0
+
+[node name="__start_game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 364.0
+offset_right = 535.0
+offset_bottom = 395.0
+text = "Start Game!"

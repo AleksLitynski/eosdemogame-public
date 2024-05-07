@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqrg7f4xt76db"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7k0ss"]
+[ext_resource type="Script" path="res://scripts/eos_client.gd" id="2_tlb68"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2mgf"]
+bg_color = Color(0.309804, 0.309804, 0.309804, 0.854902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb5xg"]
+bg_color = Color(0.152941, 0.231373, 0.427451, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7k0ss")
+
+[node name="eos" type="Node" parent="."]
+script = ExtResource("2_tlb68")
+
+[node name="__stage_spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/stage/stage_1.tscn")
+spawn_path = NodePath("../__current_stage")
+
+[node name="__player_spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player.tscn")
+spawn_path = NodePath("../__players")
+
+[node name="__character_spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player/cardinal_player.tscn")
+spawn_path = NodePath("../__characters")
+
+[node name="__bullet_spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/player/bullets/autotarget_bullet.tscn")
+spawn_path = NodePath("../__bullets")
+
+[node name="__enemy_spawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://scenes/enemy/follower_enemy.tscn")
+spawn_path = NodePath("../__enemies")
+
+[node name="__players" type="Node" parent="."]
+
+[node name="__characters" type="Node3D" parent="."]
+
+[node name="__bullets" type="Node3D" parent="."]
+
+[node name="__enemies" type="Node3D" parent="."]
+
+[node name="__current_stage" type="Node3D" parent="."]
+
+[node name="__current_menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="__peers" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1226.0
+offset_top = 502.0
+offset_right = 1926.0
+offset_bottom = 758.0
+
+[node name="logs" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 1226.0
+offset_top = 735.0
+offset_right = 1914.0
+offset_bottom = 1074.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k2mgf")
+follow_focus = true
+
+[node name="__logs_holder" type="VBoxContainer" parent="logs"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="__autoloading_warning" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0.976471, 0.976471, 0.976471, 1)
+theme_override_font_sizes/font_size = 125
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rb5xg")
+disabled = true
+text = "AUTOLOADING GAME"

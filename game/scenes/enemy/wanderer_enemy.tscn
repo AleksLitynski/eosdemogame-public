@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://br4s3dgxkwapk"]
+
+[ext_resource type="Script" path="res://scripts/wanderer_enemy.gd" id="1_tusfb"]
+[ext_resource type="PackedScene" uid="uid://drbldjpska0qe" path="res://scenes/enemy/machine_wirelessCable.glb" id="1_vhrh4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_von4j"]
+size = Vector3(0.491821, 0.363586, 0.473022)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqs5c"]
+size = Vector3(0.484863, 0.355957, 0.471741)
+
+[node name="WandererEnemy" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_tusfb")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="machine_wirelessCable2" parent="Pivot" instance=ExtResource("1_vhrh4")]
+transform = Transform3D(0.875, 0, 0, 0, 1, 0, 0, 0, 1, -1.68823, 0, -1.44706)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0591345, 0.178436, 0.0389942)
+shape = SubResource("BoxShape3D_von4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0587797, 0.183592, 0.0383749)
+shape = SubResource("BoxShape3D_bqs5c")

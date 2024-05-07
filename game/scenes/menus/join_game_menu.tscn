@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2s6yp18ni3ik"]
+
+[ext_resource type="Script" path="res://scripts/menus/join_game_menu.gd" id="1_sqn87"]
+
+[node name="join_game_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqn87")
+
+[node name="__join_buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="__host_id" type="LineEdit" parent="__join_buttons"]
+layout_mode = 0
+offset_left = 813.0
+offset_top = 502.0
+offset_right = 1064.0
+offset_bottom = 533.0
+placeholder_text = "Game Id"
+
+[node name="__join_game" type="Button" parent="__join_buttons"]
+layout_mode = 0
+offset_left = 1086.0
+offset_top = 503.0
+offset_right = 1179.0
+offset_bottom = 534.0
+text = "Join Game"
+
+[node name="__back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1804.0
+offset_top = 19.0
+offset_right = 1897.0
+offset_bottom = 50.0
+text = "Back"
+
+[node name="__connecting" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 926.0
+offset_top = 505.0
+offset_right = 1027.0
+offset_bottom = 528.0
+text = "Connecting..."

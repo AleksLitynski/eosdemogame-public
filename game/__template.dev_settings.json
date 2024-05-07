@@ -1,0 +1,13 @@
+{
+	"dev_credential": "tavoe",
+	
+	"level_autoload": true,
+	
+	
+	"logging": {
+		"log_level": "debug",
+		"module_log_levels": {
+			"default": "info"
+		}
+	},
+}

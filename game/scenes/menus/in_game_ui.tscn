@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3j7hksuhp3t"]
+
+[ext_resource type="Script" path="res://scripts/menus/in_game_ui.gd" id="1_80oy6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1bxe"]
+bg_color = Color(0.6, 0.14902, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pxcp"]
+bg_color = Color(0.176471, 0.196078, 0.74902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k47lb"]
+font_size = 48
+
+[node name="in_game_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_80oy6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 16.0
+offset_right = 701.0
+offset_bottom = 39.0
+text = "Health"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 52.0
+offset_right = 732.0
+offset_bottom = 75.0
+text = "Experience"
+
+[node name="__health" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 19.0
+offset_right = 1090.0
+offset_bottom = 46.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_q1bxe")
+value = 100.0
+show_percentage = false
+
+[node name="__experience" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 54.0
+offset_right = 1090.0
+offset_bottom = 81.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_6pxcp")
+value = 100.0
+show_percentage = false
+
+[node name="__username" type="Label" parent="."]
+layout_mode = 0
+offset_left = 904.0
+offset_top = 1044.0
+offset_right = 986.0
+offset_bottom = 1067.0
+text = "Guy Manly"
+
+[node name="__quit_to_title" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1806.0
+offset_top = 11.0
+offset_right = 1906.0
+offset_bottom = 42.0
+text = "Quit to Title"
+
+[node name="__powerups" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 633.0
+offset_bottom = 87.0
+
+[node name="__game_over_region" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 814.0
+offset_top = 366.0
+offset_right = 1094.0
+offset_bottom = 467.0
+
+[node name="Panel" type="Panel" parent="__game_over_region"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 21.0
+offset_right = 279.0
+offset_bottom = 260.0
+
+[node name="Label3" type="Label" parent="__game_over_region"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 55.0
+offset_right = 235.0
+offset_bottom = 122.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_k47lb")
+
+[node name="__restart_button" type="Button" parent="__game_over_region"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 154.0
+offset_right = 166.0
+offset_bottom = 212.0
+text = "Restart"

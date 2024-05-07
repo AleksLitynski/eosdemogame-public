@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cin8b3wf426gy"]
+
+[ext_resource type="PackedScene" uid="uid://d2x4ertfbt0cu" path="res://scenes/player/coin.glb" id="1_0tkqf"]
+[ext_resource type="Script" path="res://scripts/cardinal_player.gd" id="1_fynpm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7dbdy"]
+height = 0.861162
+radius = 0.135188
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6ukai"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath(".:owner_id")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="CardinalPlayer" type="CharacterBody3D" groups=["players"]]
+collision_layer = 2
+script = ExtResource("1_fynpm")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="dummy_model" parent="Pivot" instance=ExtResource("1_0tkqf")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.216878, -0.21053)
+
+[node name="DetectorZone" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="DetectorShape" type="CollisionShape3D" parent="DetectorZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.218, 0)
+shape = SubResource("CylinderShape3D_7dbdy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.374607, 0.927184, 0, -0.927184, 0.374607, 0, 6.283, 2.488)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.218, 0)
+shape = SubResource("CylinderShape3D_7dbdy")
+
+[node name="WeaponNode" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6ukai")
+
+[node name="player_name" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635, 0)
+billboard = 1
+no_depth_test = true
+text = "Player 1"
+font_size = 48
+
+[connection signal="area_entered" from="DetectorZone" to="." method="_on_detector_zone_area_entered"]

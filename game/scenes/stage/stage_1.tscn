@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://di7gf4f2vtsi7"]
+
+[ext_resource type="Texture2D" uid="uid://ctr6u2eua2v2h" path="res://aseprite/stage_background.png" id="1_jivjg"]
+[ext_resource type="Script" path="res://scripts/stage.gd" id="1_svcba"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j6veg"]
+size = Vector3(150, 1, 214.178)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1b2g"]
+albedo_texture = ExtResource("1_jivjg")
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+uv1_scale = Vector3(6.175, 6.175, 6.175)
+texture_filter = 4
+grow_amount = -16.0
+point_size = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_a6ago"]
+material = SubResource("StandardMaterial3D_k1b2g")
+size = Vector3(150, 1, 214.17)
+
+[node name="Stage_1" type="Node3D" groups=["stages"]]
+script = ExtResource("1_svcba")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_mask = 6
+
+[node name="NWCollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -75, 0, -43)
+shape = SubResource("BoxShape3D_j6veg")
+
+[node name="NWMesh" type="MeshInstance3D" parent="StaticBody3D/NWCollisionShape"]
+mesh = SubResource("BoxMesh_a6ago")
+skeleton = NodePath("../..")
+
+[node name="SECollisionShape" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 75, 0, 43)
+shape = SubResource("BoxShape3D_j6veg")
+
+[node name="SEMesh" type="MeshInstance3D" parent="StaticBody3D/SECollisionShape"]
+mesh = SubResource("BoxMesh_a6ago")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 61.1928, 0)
+light_angular_distance = 82.0

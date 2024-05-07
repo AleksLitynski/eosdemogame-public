@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbp56irm4yafi"]
+
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_ehfob"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l82e1"]
+font_size = 180
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehfob")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "EOS Demo Project"
+label_settings = SubResource("LabelSettings_l82e1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 993.0
+offset_right = 933.0
+offset_bottom = 1016.0
+text = "Display Name"
+
+[node name="__start_new_game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 407.0
+offset_right = 959.0
+offset_bottom = 656.0
+text = "Start New Game"
+
+[node name="__join_game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 405.0
+offset_right = 1261.0
+offset_bottom = 655.0
+text = "Join Game"
+
+[node name="__display_name" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 942.0
+offset_top = 990.0
+offset_right = 1193.0
+offset_bottom = 1021.0
+placeholder_text = "Display Name"
+
+[node name="__use_dev_account" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 904.0
+offset_top = 1030.0
+offset_right = 1069.0
+offset_bottom = 1061.0
+text = "Use Dev Account?"
